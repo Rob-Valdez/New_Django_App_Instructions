@@ -65,27 +65,41 @@
 
         ALLOWED_HOSTS = ['*']
 
-22. initiate git in project directory
+22. pipenv install whitenoise==3.3.1
 
-23. git add -A
+23. in settings.py, in INSTALLED_APPS, above 'django.contrib.staticfiles', add
 
-24. git commit -m "configured for heroku"
+        'whitenoise.runserver_nostatic',
+    
+    in MIDDLEWARE, after SessionMiddleware, add
+    
+        'whitenoise.middleware.WhiteNoiseMiddleware',
+        
+    at the bottom of the settings file, add
+    
+        STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+        STATIC_URL = '/static/'
+        STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+        STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-25. create github repository named [projectname]
+24. initiate git in project directory
 
-26. git remote add origin https://github.com/Rob-Valdez/[reponame].git
+25. git add -A
 
-27. git push -u origin master
+26. git commit -m "configured for heroku"
 
-28. heroku create [projectname]
+27. create github repository named [projectname]
 
-29. heroku git:remote -a [projectname]
+28. git remote add origin https://github.com/Rob-Valdez/[reponame].git
 
-30. heroku config:set DISABLE_COLLECTSTATIC=1
+29. git push -u origin master
 
-31. git push heroku master
+30. heroku create [projectname]
 
-## pending steps
-collect static files
+31. heroku git:remote -a [projectname]
+
+32. git push heroku master
+
+## TODO
 
 create env variable from django secret key
