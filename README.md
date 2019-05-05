@@ -29,8 +29,16 @@
         def [appname](request):
             return render(request, '[appname].html', {})
 
+13. create urls.py file within app and add the following
 
-13. in [projectname] urls.py file, add urls for [appname]
+        from django.urls import path
+        from . import views
+
+        urlpatterns = [
+            path('', views.[appname], name='[appname]'),
+        ]
+
+14. in [projectname] urls.py file, add urls for [appname]
 
         from django.urls import path, include
 
@@ -39,14 +47,6 @@
             path('', include('[appname].urls')),
         [
 
-14. create urls.py file within app and add the following
-
-        from django.urls import path
-        from . import views
-
-        urlpatterns = [
-            path('', views.[appname], name='[appname]'),
-        ]
 
 15. python manage.py runserver
 
