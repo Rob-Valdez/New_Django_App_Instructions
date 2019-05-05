@@ -16,7 +16,7 @@
 
 8. in settings.py add [appname] to installed apps
 
-    '[appname]'.apps.[Appname]Config'
+        '[appname].apps.[Appname]Config'
 
 9. in [appname] directory, create templates directory called 'templates'
 
