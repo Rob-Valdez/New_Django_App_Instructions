@@ -18,8 +18,8 @@
 
 9. in [appname] directory create a view
 
-    def [appname](request):
-        return render(request, '[appname].html', {})
+        def [appname](request):
+            return render(request, '[appname].html', {})
 
 10. create templates directory in [appname] directory called 'templates'
 
@@ -27,25 +27,25 @@
 
 12. in new template file add placeholder text: 
     
-    <h1>Hello world</h1>
+        <h1>Hello world</h1>
 
 13. in [projectname] urls.py file, add urls for [appname]
 
-    from django.urls import path, include
+        from django.urls import path, include
 
-    urlpatterns = [
-        path('admin/', admin.site.urls),
-        path('', include('[appname].urls')),
-    [
+        urlpatterns = [
+            path('admin/', admin.site.urls),
+            path('', include('[appname].urls')),
+        [
 
 14. create urls.py file within app and add the following
 
-    from django.urls import path
-    from . import views
+        from django.urls import path
+        from . import views
 
-    urlpatterns = [
-        path('', views.[appname], name='[appname]'),
-    ]
+        urlpatterns = [
+            path('', views.[appname], name='[appname]'),
+        ]
 
 15. python manage.py runserver
 
@@ -57,13 +57,13 @@
 
 19. add to Procfile
 
-    web: gunicorn [projectname].wsgi --log-file - 
+        web: gunicorn [projectname].wsgi --log-file - 
 
 20. pipenv install gunicorn==19.9.0
 
 21. add to settings.py
 
-    ALLOWED_HOSTS = ['*']
+        ALLOWED_HOSTS = ['*']
 
 22. initiate git in project directory
 
