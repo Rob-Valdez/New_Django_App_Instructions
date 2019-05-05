@@ -16,18 +16,19 @@
 
 8. in settings.py add [appname] to installed apps
 
-9. in [appname] directory create a view
+9. create templates directory in [appname] directory called 'templates'
+
+10. create [appname].html as a template within the new 'templates' directory
+
+11. in new template file add placeholder text: 
+    
+        <h1>Hello world</h1>
+
+12. in [appname]'s views.py file create a view
 
         def [appname](request):
             return render(request, '[appname].html', {})
 
-10. create templates directory in [appname] directory called 'templates'
-
-11. create [appname].html as a template within the new 'templates' directory
-
-12. in new template file add placeholder text: 
-    
-        <h1>Hello world</h1>
 
 13. in [projectname] urls.py file, add urls for [appname]
 
