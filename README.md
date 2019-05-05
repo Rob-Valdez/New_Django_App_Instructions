@@ -64,18 +64,27 @@
 
 20. pipenv install gunicorn==19.9.0
 
-21. add to settings.py
-
-        ALLOWED_HOSTS = ['*']
 
 22. pipenv install whitenoise==3.3.1
 
 23. in root project directory, add 'static' directory
 
-24. in settings.py, in INSTALLED_APPS, as the last app, add
+24. in settings.py, 
+
+    copy the secret key to a notepad
+
+    change SECRET_KEY to 
+    
+        'django_secret_KEY'
+    
+    change allowed hosts as follows:
+
+        ALLOWED_HOSTS = ['*']
+    
+    in INSTALLED_APPS, as the last app, add
 
         'whitenoise.runserver_nostatic',
-    
+            
     in MIDDLEWARE, after SessionMiddleware, add
     
         'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -103,8 +112,10 @@
 
 32. heroku git:remote -a [projectname]
 
+33. log into heroku and under settings, create a new Config Vars value
+
+    django_secret_KEY
+
+    and add the string for the secret key
+
 33. git push heroku master
-
-## TODO
-
-create env variable from django secret key
