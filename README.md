@@ -1,35 +1,35 @@
 # New_Django_App_Instructions
 
-create project directory
+1. create project directory
 
-pipenv shell
+2. pipenv shell
 
-pipenv install Django==2.1
+3. pipenv install Django==2.1
 
-django-admin startproject [projectname] .
+4. django-admin startproject [projectname] .
 
-python manage.py runserver
+5. python manage.py runserver
 
-open browser and check for validation
+6. open browser and check for validation
 
-python manage.py startapp [appname]
+7. python manage.py startapp [appname]
 
-in settings.py add [appname] to installed apps
+8. in settings.py add [appname] to installed apps
 
-in [appname] directory create a view
+9. in [appname] directory create a view
 
     def [appname](request):
         return render(request, '[appname].html', {})
 
-create templates directory in [appname] directory called 'templates'
+10. create templates directory in [appname] directory called 'templates'
 
-create [appname].html as a template within the new 'templates' directory
+11. create [appname].html as a template within the new 'templates' directory
 
-in new template file add placeholder text: 
+12. in new template file add placeholder text: 
     
     <h1>Hello world</h1>
 
-in [projectname] urls.py file, add urls for [appname]
+13. in [projectname] urls.py file, add urls for [appname]
 
     from django.urls import path, include
 
@@ -38,7 +38,7 @@ in [projectname] urls.py file, add urls for [appname]
         path('', include('[appname].urls')),
     [
 
-create urls.py file within app and add the following
+14. create urls.py file within app and add the following
 
     from django.urls import path
     from . import views
@@ -47,37 +47,45 @@ create urls.py file within app and add the following
         path('', views.[appname], name='[appname]'),
     ]
 
-python manage.py runserver
-validate that placeholder text is there
+15. python manage.py runserver
 
-pipenv lock
+16. validate that placeholder text is there
 
-at root directory for project, create Procfile file 
-add to Procfile
+17. pipenv lock
+
+18. at root directory for project, create Procfile file 
+
+19. add to Procfile
 
     web: gunicorn [projectname].wsgi --log-file - 
 
-pipenv install gunicorn==19.9.0
+20. pipenv install gunicorn==19.9.0
 
-settings.py
+21. add to settings.py
 
     ALLOWED_HOSTS = ['*']
 
-initiate git in project directory
-git add -A
-git commit -m "configured for heroku"
+22. initiate git in project directory
 
-create github repository
+23. git add -A
 
-git remote add origin https://github.com/Rob-Valdez/[reponame].git
-git push -u origin master
+24. git commit -m "configured for heroku"
 
-heroku create [projectname]
-heroku git:remote -a [projectname]
-heroku config:set DISABLE_COLLECTSTATIC=1
+25. create github repository named [projectname]
 
-git push heroku master
+26. git remote add origin https://github.com/Rob-Valdez/[reponame].git
+
+27. git push -u origin master
+
+28. heroku create [projectname]
+
+29. heroku git:remote -a [projectname]
+
+30. heroku config:set DISABLE_COLLECTSTATIC=1
+
+31. git push heroku master
 
 ## pending steps
 collect static files
+
 create env variable from django secret key
