@@ -17,21 +17,27 @@ python manage.py startapp [appname]
 in settings.py add [appname] to installed apps
 
 create view
-def [appname](request):
-    return render(request, '[appname].html', {})
+
+    def [appname](request):
+        return render(request, '[appname].html', {})
 
 create templates directory in [appname] directory called 'templates'
 
 create [appname].html as a template within the new 'templates' directory
 
-in new template file add placeholder text: <h1>Hello world</h1>
+in new template file add placeholder text: 
+    
+    <h1>Hello world</h1>
 
 add app urls to project
-import include
-add 
-path('', include('[appname].urls')),
+
+    import include
+add
+
+    path('', include('[appname].urls')),
 
 create urls.py file within app and add the following
+
     from django.urls import path
     from . import views
 
@@ -45,12 +51,15 @@ validate that placeholder text is there
 pipenv lock
 
 create Procfile for project at root directory for project
-add "web: gunicorn [projectname].wsgi --log-file -" to Procfile
+add to Procfile
+
+    "web: gunicorn [projectname].wsgi --log-file -" 
 
 pipenv install gunicorn==19.9.0
 
 settings.py
-ALLOWED_HOSTS = ['*']
+
+    ALLOWED_HOSTS = ['*']
 
 initiate git in project directory
 git add -A
