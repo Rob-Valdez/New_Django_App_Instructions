@@ -16,7 +16,7 @@
 
 8. in settings.py add [appname] to installed apps
 
-9. create templates directory in [appname] directory called 'templates'
+9. in [appname] directory, create templates directory called 'templates'
 
 10. create [appname].html as a template within the new 'templates' directory
 
