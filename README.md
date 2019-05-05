@@ -16,7 +16,7 @@ python manage.py startapp [appname]
 
 in settings.py add [appname] to installed apps
 
-create view
+in [appname] directory create a view
 
     def [appname](request):
         return render(request, '[appname].html', {})
