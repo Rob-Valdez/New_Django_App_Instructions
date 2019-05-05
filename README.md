@@ -52,10 +52,10 @@ validate that placeholder text is there
 
 pipenv lock
 
-create Procfile for project at root directory for project
+at root directory for project, create Procfile file 
 add to Procfile
 
-    "web: gunicorn [projectname].wsgi --log-file -" 
+    web: gunicorn [projectname].wsgi --log-file - 
 
 pipenv install gunicorn==19.9.0
 
