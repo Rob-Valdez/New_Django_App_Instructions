@@ -29,12 +29,14 @@ in new template file add placeholder text:
     
     <h1>Hello world</h1>
 
-add app urls to project
+in [projectname] urls.py file, add urls for [appname]
 
-    import include
-add
+    from django.urls import path, include
 
-    path('', include('[appname].urls')),
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('', include('[appname].urls')),
+    [
 
 create urls.py file within app and add the following
 
