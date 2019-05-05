@@ -16,6 +16,8 @@
 
 8. in settings.py add [appname] to installed apps
 
+    '[appname]'.apps.[Appname]Config'
+
 9. in [appname] directory, create templates directory called 'templates'
 
 10. create [appname].html as a template within the new 'templates' directory
@@ -68,7 +70,9 @@
 
 22. pipenv install whitenoise==3.3.1
 
-23. in settings.py, in INSTALLED_APPS, above 'django.contrib.staticfiles', add
+23. in root project directory, add 'static' directory
+
+24. in settings.py, in INSTALLED_APPS, as the last app, add
 
         'whitenoise.runserver_nostatic',
     
@@ -83,23 +87,23 @@
         STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
         STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-24. initiate git in project directory
+25. initiate git in project directory
 
-25. git add -A
+26. git add -A
 
-26. git commit -m "configured for heroku"
+27. git commit -m "configured for heroku"
 
-27. create github repository named [projectname]
+28. create github repository named [projectname]
 
-28. git remote add origin https://github.com/Rob-Valdez/[reponame].git
+29. git remote add origin https://github.com/Rob-Valdez/[reponame].git
 
-29. git push -u origin master
+30. git push -u origin master
 
-30. heroku create [projectname]
+31. heroku create [projectname]
 
-31. heroku git:remote -a [projectname]
+32. heroku git:remote -a [projectname]
 
-32. git push heroku master
+33. git push heroku master
 
 ## TODO
 
