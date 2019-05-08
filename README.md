@@ -20,7 +20,7 @@
         
 and
 
-        "DIRS": ["[projectname]/templates/"],
+        "DIRS": ["templates/"],
 
 9. in [projectname] directory, create templates directory called 'templates'
 
