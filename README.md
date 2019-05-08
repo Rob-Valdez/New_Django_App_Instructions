@@ -12,26 +12,48 @@
 
 6. open browser and check for validation
 
-7. python manage.py startapp [appname]
+7. python manage.py startapp [appname] # presentations, for example
 
 8. in settings.py add [appname] to installed apps
 
         '[appname].apps.[Appname]Config'
+        
+and
 
-9. in [appname] directory, create templates directory called 'templates'
+        "DIRS": ["[projectname]/templates/"],
 
-10. create [appname].html as a template within the new 'templates' directory
+9. in [projectname] directory, create templates directory called 'templates'
 
-11. in new template file add placeholder text: 
+10. in new 'templates' directory, create html file named 'base.html'
+
+11. add the following to base.html:
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        {% block page_content %}{% endblock %}
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+12. in [appname] directory, create templates directory called 'templates'
+
+13. create home.html as a template within the new 'templates' directory
+
+14. in home.html add placeholder text: 
     
-        <h1>Hello world</h1>
+        {% extends "base.html" %}
 
-12. in [appname]'s views.py file create a view
+        {% block page_content %}
+        <h1>Hello, World!</h1>
+        {% endblock %}
+
+15. in [appname]'s views.py file create a view
 
         def [appname](request):
             return render(request, '[appname].html', {})
 
-13. create urls.py file within app and add the following
+16. create urls.py file within app and add the following
 
         from django.urls import path
         from . import views
@@ -40,7 +62,7 @@
             path('', views.[appname], name='[appname]'),
         ]
 
-14. in [projectname] urls.py file, add urls for [appname]
+17. in [projectname] urls.py file, add urls for [appname]
 
         from django.urls import path, include
 
@@ -50,26 +72,26 @@
         [
 
 
-15. python manage.py runserver
+18. python manage.py runserver
 
-16. validate that placeholder text is there
+19. validate that placeholder text is there
 
-17. pipenv lock
+20. pipenv lock
 
-18. at root directory for project, create Procfile file 
+21. at root directory for project, create Procfile file 
 
-19. add to Procfile
+22. add to Procfile
 
         web: gunicorn [projectname].wsgi --log-file - 
 
-20. pipenv install gunicorn==19.9.0
+23. pipenv install gunicorn==19.9.0
 
 
-22. pipenv install whitenoise==3.3.1
+24. pipenv install whitenoise==3.3.1
 
-23. in root project directory, add 'static' directory
+25. in root project directory, add 'static' directory
 
-24. in settings.py, 
+26. in settings.py, 
 
     copy the secret key to a notepad
 
@@ -100,26 +122,26 @@
         STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
         STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-25. initiate git in project directory
+27. initiate git in project directory
 
-26. git add -A
+28. git add -A
 
-27. git commit -m "configured for heroku"
+29. git commit -m "configured for heroku"
 
-28. create github repository named [projectname]
+30. create github repository named [projectname]
 
-29. git remote add origin https://github.com/Rob-Valdez/[reponame].git
+31. git remote add origin https://github.com/Rob-Valdez/[reponame].git
 
-30. git push -u origin master
+32. git push -u origin master
 
-31. heroku create [projectname]
+33. heroku create [projectname]
 
-32. heroku git:remote -a [projectname]
+34. heroku git:remote -a [projectname]
 
-33. log into heroku and under settings, create a new Config Vars value
+35. log into heroku and under settings, create a new Config Vars value
 
     django_secret_KEY
 
     and add the string for the secret key
 
-33. git push heroku master
+36. git push heroku master
