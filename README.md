@@ -38,7 +38,7 @@
 
 12. in [appname] directory, create templates directory called 'templates'
 
-13. create home.html as a template within the new 'templates' directory
+13. create [appname].html as a template within the new 'templates' directory
 
 14. in home.html add placeholder text: 
     
