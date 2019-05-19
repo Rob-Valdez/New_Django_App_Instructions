@@ -76,23 +76,25 @@
 
 19. validate that placeholder text is there
 
-20. python manage.py createsuperuser
+20. python manage.py migrate
 
-21. pipenv lock
+21. python manage.py createsuperuser
 
-22. at root directory for project, create Procfile file 
+22. pipenv lock
 
-23. add to Procfile
+23. at root directory for project, create Procfile file 
+
+24. add to Procfile
 
         web: gunicorn [projectname].wsgi --log-file - 
 
-24. pipenv install gunicorn==19.9.0
+25. pipenv install gunicorn==19.9.0
 
-25. pipenv install whitenoise==3.3.1
+26. pipenv install whitenoise==3.3.1
 
-26. in root project directory, add 'static' directory
+27. in root project directory, add 'static' directory
 
-27. in settings.py, 
+28. in settings.py, 
 
     copy the secret key to a notepad
 
@@ -123,26 +125,26 @@
         STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
         STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-28. initiate git in project directory
+29. initiate git in project directory
 
-29. git add -A
+30. git add -A
 
-30. git commit -m "configured for heroku"
+31. git commit -m "configured for heroku"
 
-31. create github repository named [projectname]
+32. create github repository named [projectname]
 
-32. git remote add origin https://github.com/Rob-Valdez/[reponame].git
+33. git remote add origin https://github.com/Rob-Valdez/[reponame].git
 
-33. git push -u origin master
+34. git push -u origin master
 
-34. heroku create [projectname]
+35. heroku create [projectname]
 
-35. heroku git:remote -a [projectname]
+36. heroku git:remote -a [projectname]
 
-36. log into heroku and under settings, create a new Config Vars value
+37. log into heroku and under settings, create a new Config Vars value
 
     django_secret_KEY
 
     and add the string for the secret key
 
-37. git push heroku master
+38. git push heroku master
