@@ -40,7 +40,7 @@
 
 13. create [appname].html as a template within the new 'templates' directory
 
-14. in home.html add placeholder text: 
+14. in [appname].html add placeholder text: 
     
         {% extends "base.html" %}
 
