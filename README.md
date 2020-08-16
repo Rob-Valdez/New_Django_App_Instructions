@@ -22,7 +22,7 @@
 
         "DIRS": ["templates/"],
 
-9. in [projectname] directory, create templates directory called 'templates'
+9. in project root directory, create templates directory called 'templates'
 
 10. in new 'templates' directory, create html file named 'base.html'
 
@@ -69,7 +69,7 @@
         urlpatterns = [
             path('admin/', admin.site.urls),
             path('', include('[appname].urls')),
-        [
+        ]
 
 
 18. python manage.py runserver
